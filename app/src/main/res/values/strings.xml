@@ -4,4 +4,7 @@
     <string name="category_list_no_results">No categories found</string>
     <string name="category_list_unknown_error">Unable to fetch category list - please try refreshing the list</string>
     <string name="action_refresh">Refresh</string>
+    <string name="featured_listings">Featured Listings</string>
+    <string name="featured_listings_no_results">No listings found</string>
+    <string name="featured_listings_unknown_error">Unable to fetch Featured Listings</string>
 </resources>

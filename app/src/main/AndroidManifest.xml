@@ -18,6 +18,9 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+
+        <activity android:name="nz.co.trademe.techtest.listing_list.ListingsActivity"
+                  android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

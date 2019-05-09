@@ -13,6 +13,7 @@ import kotlinx.android.synthetic.main.activity_category_listing.*
 import nz.co.trademe.techtest.R
 import nz.co.trademe.wrapper.models.Category
 import java.util.*
+import nz.co.trademe.techtest.listing_list.ListingsActivity
 
 class CategoryListActivity : AppCompatActivity() {
 
@@ -53,7 +54,7 @@ class CategoryListActivity : AppCompatActivity() {
         layoutManager = LinearLayoutManager(this)
         listAdapter = CategoryAdapter(object: CategoryAdapterListener {
             override fun onSelected(categoryId: String) {
-                Log.d("Category", "CategorySelected - $categoryId")
+                startActivity(ListingsActivity.createIntent(this@CategoryListActivity, categoryId))
             }
         })
 
