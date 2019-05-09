@@ -1,5 +1,6 @@
 package nz.co.trademe.wrapper
 
+import io.reactivex.Single
 import nz.co.trademe.wrapper.models.Category
 import nz.co.trademe.wrapper.models.SearchCollection
 import retrofit2.CallAdapter
@@ -47,7 +48,7 @@ interface TradeMeApiService {
      * [Trade Me Api Reference]("https://developer.trademe.co.nz/api-reference/catalogue-methods/retrieve-general-categories/")
      */
     @GET("v1/Categories/{number}.json")
-    fun getCategory(@Path("number") number: String): Nothing = TODO("Change the return type of this method so you can retrieve a Category")
+    fun getCategory(@Path("number") number: String): Single<Category>
 
     /**
      * Retrieve the details of a single listing

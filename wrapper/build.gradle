@@ -27,9 +27,13 @@ android {
         }
     }
 
+    def localPropertiesFile = rootProject.file("local.properties")
+    def localProperties = new Properties()
+    localProperties.load(new FileInputStream(localPropertiesFile))
+
     buildTypes.each {
-        it.buildConfigField 'String', 'SANDBOX_CONSUMER_KEY', SANDBOX_CONSUMER_KEY
-        it.buildConfigField 'String', 'SANDBOX_CONSUMER_SECRET', SANDBOX_CONSUMER_SECRET
+        it.buildConfigField 'String', 'SANDBOX_CONSUMER_KEY', localProperties['SANDBOX_CONSUMER_KEY']
+        it.buildConfigField 'String', 'SANDBOX_CONSUMER_SECRET', localProperties['SANDBOX_CONSUMER_SECRET']
     }
 }
 
@@ -41,11 +45,11 @@ dependencies {
 
     // Network
     def okHttpVersion = '3.14.0'
-    def retrofitVersion = '2.5.0'
     def moshiVersion = '1.8.0'
     implementation "com.squareup.okhttp3:okhttp:$okHttpVersion"
     implementation "com.squareup.okhttp3:logging-interceptor:$okHttpVersion"
     implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofitVersion"
     implementation "com.squareup.retrofit2:converter-moshi:$retrofitVersion"
     implementation "com.squareup.moshi:moshi:$moshiVersion"
     implementation "com.squareup.moshi:moshi-kotlin:$moshiVersion"

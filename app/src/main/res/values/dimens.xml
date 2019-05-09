@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="content_vertical_gutter">10dp</dimen>
+    <dimen name="toolbar_elevation">4dp</dimen>
+    <dimen name="loading_elevation">8dp</dimen>
+</resources>
