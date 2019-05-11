@@ -35,7 +35,9 @@ class ListingsViewModel(private val categoryId: String): ViewModel() {
             FILTER_KEY_CATEGORY to categoryId,
             FILTER_KEY_EXPIRED to "false",
             FILTER_KEY_ROWS to MAX_LISTINGS_TO_FETCH.toString(),
-            FILTER_KEY_SORT_ORDER to "FeaturedFirst")
+            FILTER_KEY_SORT_ORDER to "FeaturedFirst",
+            FILTER_KEY_IMAGE_SIZE to IMAGE_SIZE)
+
     }
 
     override fun onCleared() {
@@ -45,9 +47,12 @@ class ListingsViewModel(private val categoryId: String): ViewModel() {
 
     companion object {
         private const val MAX_LISTINGS_TO_FETCH = 20
+        private const val IMAGE_SIZE = "Gallery"
+
         private const val FILTER_KEY_CATEGORY = "category"
         private const val FILTER_KEY_EXPIRED = "expired"
         private const val FILTER_KEY_ROWS = "rows"
         private const val FILTER_KEY_SORT_ORDER = "sort_order"
+        private const val FILTER_KEY_IMAGE_SIZE = "photo_size"
     }
 }

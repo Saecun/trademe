@@ -16,6 +16,7 @@ import kotlinx.android.synthetic.main.activity_listing_details.loading
 import nz.co.trademe.techtest.R
 import nz.co.trademe.techtest.listing_list.InsufficientInputException
 import nz.co.trademe.wrapper.models.ListedItemDetail
+import nz.co.trademe.wrapper.models.Photo
 
 
 class ListedItemDetailActivity: AppCompatActivity() {
@@ -53,11 +54,21 @@ class ListedItemDetailActivity: AppCompatActivity() {
                 listingIdText.text = getString(R.string.listing_details_id, listedItemDetail.listingId)
 
                 val myOptions = RequestOptions().placeholder(nz.co.trademe.techtest.R.drawable.loading)
-                val photoUrl = listedItemDetail.photos?.getOrNull(0)?.value?.thumbnail
-                Glide.with(applicationContext).load(photoUrl).apply(myOptions).into(listingImage)
+
+                val photo = getBestPhotoUrl(listedItemDetail)
+                if( photo != null )
+                    Glide.with(applicationContext).load(photo).apply(myOptions).into(listingImage)
+
                 loading.visibility = View.INVISIBLE
             }
         })
+    }
+
+    private fun getBestPhotoUrl(listedItemDetail: ListedItemDetail): String? {
+        val primaryPhoto = listedItemDetail.getPrimaryPhoto()
+        primaryPhoto ?: return null
+
+        return primaryPhoto.value.fullSize ?: primaryPhoto.value.large ?: primaryPhoto.value.thumbnail
     }
 
     companion object {

@@ -26,7 +26,7 @@ class ListedItemDetailViewModel(private val listingId: Long): ViewModel() {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(
                     { listedItemDetail -> callback.onSuccess(listedItemDetail) },
-                    { _ -> callback.onError(ListedItemDetailFetchListener.Error.UNKNOWN) }
+                    { callback.onError(ListedItemDetailFetchListener.Error.UNKNOWN) }
                 )
 
     }

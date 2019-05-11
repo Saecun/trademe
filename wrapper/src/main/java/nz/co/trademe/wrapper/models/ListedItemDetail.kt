@@ -38,5 +38,16 @@ data class ListedItemDetail(
      * pricing rules, e.g. properties may have "Price by negotiation".
      */
     @Json(name = "PriceDisplay")
-    val priceDisplay: String? = null
-)
+    val priceDisplay: String? = null,
+
+    @Json(name = "PhotoId")
+    val primaryPhotoId: Int? = null
+) {
+
+    fun getPrimaryPhoto(): Photo? {
+        if (primaryPhotoId == null)
+            return photos?.getOrNull(0)
+
+        return photos?.find { photo -> photo.value.photoId == primaryPhotoId }
+    }
+}

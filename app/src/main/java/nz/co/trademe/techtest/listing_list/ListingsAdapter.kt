@@ -60,7 +60,6 @@ class ListingsAdapter(private val listener: ListingsAdapterListener,
             val myOptions = RequestOptions().placeholder(nz.co.trademe.techtest.R.drawable.loading)
             Glide.with(itemView.context.applicationContext).load(listing.pictureHref).apply(myOptions).into(itemView.listingImage)
 
-
             itemView.isSelected = adapterPosition == selectedItemPosition
 
             itemView.setOnClickListener { _ ->
