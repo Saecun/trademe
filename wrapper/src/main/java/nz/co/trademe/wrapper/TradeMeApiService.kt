@@ -2,6 +2,7 @@ package nz.co.trademe.wrapper
 
 import io.reactivex.Single
 import nz.co.trademe.wrapper.models.Category
+import nz.co.trademe.wrapper.models.ListedItemDetail
 import nz.co.trademe.wrapper.models.SearchCollection
 import retrofit2.CallAdapter
 import retrofit2.http.GET
@@ -59,5 +60,5 @@ interface TradeMeApiService {
      *
      */
     @GET("v1/Listings/{listingId}.json")
-    fun getListing(@Path("listingId") listingId: Long): Nothing = TODO("Change the return type of this method so you can retrieve a ListedItemDetail")
+    fun getListing(@Path("listingId") listingId: Long): Single<ListedItemDetail>
 }

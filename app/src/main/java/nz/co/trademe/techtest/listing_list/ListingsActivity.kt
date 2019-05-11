@@ -8,10 +8,10 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_listings.*
 import nz.co.trademe.techtest.R
 import nz.co.trademe.techtest.category_list.ListingsAdapterListener
+import nz.co.trademe.techtest.listed_item_detail.ListedItemDetailActivity
 import nz.co.trademe.techtest.util.RecyclerView
 import nz.co.trademe.wrapper.models.SearchListing
 
@@ -47,7 +47,7 @@ class ListingsActivity: AppCompatActivity() {
         layoutManager.isAutoMeasureEnabled
         listAdapter = ListingsAdapter(object: ListingsAdapterListener {
             override fun onSelected(listingId: Long) {
-                System.out.println("Here")
+                startActivity(ListedItemDetailActivity.createIntent(this@ListingsActivity, listingId))
             }
         })
 

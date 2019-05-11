@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModelProvider
 class ListingsViewModelFactory(private val categoryId: String) :
     ViewModelProvider.Factory {
 
+
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
 
         @Suppress("UNCHECKED_CAST")
